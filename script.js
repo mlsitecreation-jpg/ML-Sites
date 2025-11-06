@@ -55,44 +55,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Contact Form Validation (kept from original, adjust if you have server-side submission)
-    const contactForm = document.getElementById('contact-form'); 
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent default form submission
-
-            const name = contactForm.querySelector('#name').value.trim();
-            const email = contactForm.querySelector('#email').value.trim();
-            const message = contactForm.querySelector('#message').value.trim();
-
-            if (name === '' || email === '' || message === '') {
-                alert('Please fill in all fields.');
-                return;
-            }
-
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            // If all validations pass
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset(); // Clear the form
-        });
-    }
-
-    // Add scroll animation to elements (new functionality)
+    // CRITICAL FIX FOR NETLIFY FORM SUBMISSION:
+    // Removed all custom form validation (e.preventDefault(), alert()) to allow 
+    // Netlify's backend form handler to capture and process the submission.
+    // HTML's 'required' attribute still provides basic validation.
+    
+    // Add scroll animation to elements
     const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.service-card, .nav-link, #about h2, #services h2, #contact h2'); // Added more elements to animate
+        const elements = document.querySelectorAll('.service-card, #about h2, #services h2, #contact h2'); 
 
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
             const screenPosition = window.innerHeight / 1.3; // When element is 1/3rd from bottom of screen
 
             if (elementPosition < screenPosition) {
-                element.classList.add('animate-fade-in-up'); // Ensure 'animate-fade-in-up' is defined in your CSS/Tailwind
+                element.classList.add('animate-fade-in-up'); 
             }
         });
     };
