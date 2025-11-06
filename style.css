@@ -1,0 +1,155 @@
+/* Custom Styles */
+.gradient-bg {
+    background: linear-gradient(135deg, #001f3f 0%, #003366 100%); /* Adjusted gradient for consistency */
+}
+
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease; /* Added transition for smoother hover effects */
+}
+
+.nav-link:hover {
+    color: #93c5fd; /* Light blue on hover for nav links */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px; /* Adjusted position */
+    left: 0;
+    background-color: #93c5fd; /* Light blue underline */
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Floating Blob Animation (moved from HTML style block) */
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(45deg, rgba(0, 86, 179, 0.1) 0%, rgba(0, 31, 63, 0.2) 100%);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    filter: blur(50px);
+    z-index: 0;
+    animation: blob-animate 20s ease-in-out infinite;
+}
+
+@keyframes blob-animate {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+        transform: translate(50px, 50px) rotate(180deg);
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+/* Scroll Indicator (moved from HTML style block) */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    border: 2px solid #93c5fd;
+    border-radius: 15px;
+}
+
+.scroll-indicator::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: #93c5fd;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px) translateX(-50%);
+    }
+}
+
+/* Floating Shapes (generic) */
+.floating-shape {
+    position: absolute;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Focus styles for inputs/textareas */
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.5); /* Blue glow on focus */
+}
+
+/* Mobile-specific adjustments for better touch targets and layout */
+@media (max-width: 767px) { 
+    /* Ensure buttons and interactive elements are easily tappable */
+    button, a[role="button"], input[type="submit"] {
+        min-width: 48px;
+        min-height: 48px;
+    }
+    
+    /* Add more padding to navigation links for easier tapping */
+    .nav-link {
+        padding: 12px 0; /* Adjust vertical padding for better touch area */
+    }
+
+    /* Example: If your mobile menu takes full width and stacks items */
+    #mobile-menu {
+        width: 100%;
+        background-color: #001a35; 
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    #mobile-menu ul {
+        flex-direction: column; /* Stack menu items vertically */
+        align-items: center; /* Center items if desired */
+    }
+
+    #mobile-menu li {
+        margin-bottom: 15px; /* Space between mobile menu items */
+    }
+}
+
+/* New animation for scroll effects (added for scroll-animated elements) */
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+}

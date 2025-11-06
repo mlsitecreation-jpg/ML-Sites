@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Sites - Premium Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind config moved back here for CDN compatibility if style.css is truly separate
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#001f3f',
+                        darknavy: '#001a35',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-reverse': 'float-reverse 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in-up': 'fade-in-up 0.8s ease-out forwards', // Added for scroll animation
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'float-reverse': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(20px)' },
+                        },
+                        'fade-in-up': { // Keyframe for fade-in-up animation
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans text-white bg-navy">
+    <div class="blob hidden md:block top-[-250px] right-[-250px]"></div>
+    <div class="blob hidden md:block bottom-[-250px] left-[-250px]"></div>
+    
+    <div class="relative overflow-hidden">
+        <nav class="fixed w-full bg-navy z-50 shadow-lg backdrop-blur-sm bg-opacity-90">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex justify-between items-center">
+                    <div class="text-2xl font-bold z-10">
+                        <span class="text-white">ML</span>
+                        <span class="text-blue-300">Sites</span>
+                    </div>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#home" class="nav-link">Home</a>
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#services" class="nav-link">Services</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
+                    <div class="md:hidden z-10">
+                        <button id="menu-btn" class="text-white focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden bg-darknavy py-4 px-6" role="menu" aria-labelledby="menu-btn">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="nav-link" role="menuitem">Home</a>
+                    <a href="#about" class="nav-link" role="menuitem">About</a>
+                    <a href="#services" class="nav-link" role="menuitem">Services</a>
+                    <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <section id="home" class="gradient-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
+            <div class="container mx-auto px-6 py-20 z-10">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">We Build <span class="text-blue-300">Exceptional</span> Websites</h1>
+                        <p class="text-xl mb-8 text-gray-300 max-w-lg">Combining corporate strategy with stunning design to create digital experiences that drive results.</p>
+                        <div class="flex space-x-4">
+                            <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition duration-300 inline-block transform hover:scale-105 shadow-lg hover:shadow-blue-500/30">Get Started</a>
+                            <a href="#services" class="border border-blue-300 text-blue-300 hover:bg-blue-300 hover:text-navy px-8 py-3 rounded-full font-semibold transition duration-300 inline-block transform hover:scale-105">Our Services</a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 relative">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-blue-500 rounded-xl blur-lg opacity-20"></div>
+                           <img src="images/ML Sites Logo (1).png" alt="ML Sites Logo" class="rounded-lg shadow-2xl relative z-10 w-full max-w-xs mx-auto h-auto">
+                        </div>
+                        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse-slow"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator hidden md:block"></div>
+        </section>
+
+        <section id="about" class="bg-navy py-20 relative overflow-hidden">
+            <div class="floating-shape w-64 h-64 bg-blue-500 rounded-full -top-32 -left-32 animate-float"></div>
+            <div class="floating-shape w-96 h-96 bg-blue-300 rounded-full -bottom-48 -right-48 animate-float-reverse"></div>
+            
+            <div class="container mx-auto px-6 z-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">About <span class="text-blue-300">ML Sites</span></h2>
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                        <div class="bg-darknavy p-8 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-80 border border-gray-700/50">
+                            <h3 class="text-2xl font-bold mb-4">Our Story</h3>
+                            <p class="mb-6 text-gray-300">ML Sites was founded by Mutshidzi Mafune with a vision to bridge the gap between strategic business thinking and beautiful digital design.</p>
+                            <p class="text-gray-300">We combine a strong corporate mindset with creative designs to deliver websites that not only look stunning but also drive business results.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="flex flex-col space-y-6">
+                            <div class="bg-darknavy p-6 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-80 border border-gray-700/50">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-blue-500 p-3 rounded-full mr-4 shadow-lg">
+                                        <i class="fas fa-paint-brush text-white"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold">Mutshidzi Mafune (Founder)</h3>
+                                </div>
+                                <p class="text-gray-300">My exceptional design skills and commitment to strategy bring creativity and aesthetic excellence to every project, ensuring your website stands out from the competition.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="bg-darknavy py-20 relative overflow-hidden">
+            <div class="container mx-auto px-6 z-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Our Website <span class="text-blue-300">Solutions</span></h2>
+                <p class="text-center text-gray-300 mb-16 max-w-2xl mx-auto">We design and develop custom websites tailored to showcase your business, sell your products, or highlight your work.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card bg-navy p-8 rounded-lg transition duration-300 hover:bg-opacity-90 border border-gray-700/50 backdrop-blur-sm">
+                        <div class="bg-blue-500 p-4 rounded-full inline-block mb-6 shadow-lg">
+                            <i class="fas fa-file-alt text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Informational One-Pagers</h3>
+                        <p class="text-gray-300 mb-4">Concise and effective single-page websites to quickly
