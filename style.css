@@ -27,9 +27,25 @@
     width: 100%;
 }
 
+/* NEW: Service Card Base Style for smoother transition and initial border */
+.service-card {
+    /* Ensure border and box-shadow are ready for transition */
+    border: 1px solid rgba(118, 118, 118, 0.5); /* Start with a subtle border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* NEW: Enhanced Hover Effect (replaces old rule) */
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    /* Lift the card */
+    transform: translateY(-12px); 
+    
+    /* Add a strong shadow and a light blue glow */
+    box-shadow: 0 25px 35px -10px rgba(0, 0, 0, 0.5), 
+                0 0 15px rgba(59, 130, 246, 0.6); /* Blue glow */
+    
+    /* Highlight the border with the primary blue color */
+    border-color: #3b82f6; /* Tailwind's blue-500 */
 }
 
 /* Floating Blob Animation (moved from HTML style block) */
